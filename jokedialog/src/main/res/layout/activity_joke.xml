@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingTop="28dp"
+    android:paddingBottom="28dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    tools:context=".JokeActivity"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/joker_hat"
+        android:src="@drawable/ic_joker"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/dialog_joke_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@android:color/black"
+        tools:text="There are three rules for writing an app. Unfortunately, no one knows what they are."/>
+
+</LinearLayout>
