@@ -4,8 +4,8 @@ import android.os.AsyncTask;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.udacity.gradle.builditbigger.view.fragments.MainFragment;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
+import com.udacity.gradle.builditbigger.view.fragments.MainFragment;
 
 import java.io.IOException;
 
@@ -37,9 +37,7 @@ public class EndpointsAsyncTask extends AsyncTask<MainFragment.AsyncTaskCallback
 	@Override
 	protected void onPostExecute(String result) {
 
-		callback.setLoading(false);
-
-		if (result.contains("failed to connect"))
+		if (result.toLowerCase().contains("failed to connect"))
 			result = "Something went wrong!\nplease try again later!";
 
 		callback.displayJoke(result);

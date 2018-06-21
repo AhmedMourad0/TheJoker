@@ -7,11 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.ekalips.fancybuttonproj.FancyButton;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.background.EndpointsAsyncTask;
 import com.udacity.gradle.builditbigger.utils.AdUtils;
@@ -30,15 +27,16 @@ public class MainFragment extends Fragment {
 	private Unbinder unbinder;
 
 	@Override
-	public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-	                         Bundle savedInstanceState) {
+	public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		View root = inflater.inflate(R.layout.fragment_main, container, false);
 
 		unbinder = ButterKnife.bind(this, root);
 
 		jokeButton.setOnClickListener(v -> tellJoke(v.getContext().getApplicationContext()));
 
-		AdUtils.showAds((RelativeLayout) root);
+		AdUtils.initialize(root.getContext());
+		AdUtils.showBannerAd(root);
 
 		return root;
 	}
@@ -69,11 +67,18 @@ public class MainFragment extends Fragment {
 			@Override
 			public void displayJoke(String joke) {
 
-				if (activity != null && !activity.isFinishing() && !activity.isDestroyed())
-					JokeDialog.displayJoke(context, joke);
+				AdUtils.showInterstitialAd(context, () -> {
 
-				if (activity != null)
-					activity.setIdleState(true);
+					if (activity != null)
+						activity.setIdleState(true);
+
+				}, () -> {
+
+					if (activity != null && !activity.isFinishing() && !activity.isDestroyed())
+						JokeDialog.displayJoke(context, joke);
+
+					setLoading(false);
+				});
 			}
 		});
 	}
@@ -86,6 +91,7 @@ public class MainFragment extends Fragment {
 
 	public interface AsyncTaskCallback {
 		void setLoading(final boolean loading);
+
 		void displayJoke(final String joke);
 	}
 }

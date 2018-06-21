@@ -17,8 +17,11 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.not;
 
 @RunWith(AndroidJUnit4.class)
 public class InstrumentedTest {
@@ -37,7 +40,8 @@ public class InstrumentedTest {
 	@Test
 	public void clickButton_dialogAppears() {
 		onView(withText(R.string.button_text)).perform(click());
-		onView(withId(R.id.dialog_joke_textview)).check(matches(isDisplayed()));
+		onView(allOf(withContentDescription("Interstitial close button"), isDisplayed())).perform(click());
+		onView(withId(R.id.dialog_joke_textview)).check(matches(isDisplayed())).check(matches(not(withText(""))));
 	}
 
 	@After
