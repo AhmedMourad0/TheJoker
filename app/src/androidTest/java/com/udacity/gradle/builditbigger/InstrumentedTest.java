@@ -27,7 +27,7 @@ import static org.hamcrest.Matchers.not;
 public class InstrumentedTest {
 
 	@Rule
-	public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
+	public final ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
 	private IdlingResource idlingResource;
 

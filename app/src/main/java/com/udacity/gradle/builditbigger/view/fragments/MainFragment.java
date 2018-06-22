@@ -21,6 +21,7 @@ import inc.ahmedmourad.jokedialog.JokeDialog;
 
 public class MainFragment extends Fragment {
 
+	@SuppressWarnings("WeakerAccess")
 	@BindView(R.id.joke_button)
 	FancyButton jokeButton;
 
@@ -41,7 +42,7 @@ public class MainFragment extends Fragment {
 		return root;
 	}
 
-	public void tellJoke(final Context context) {
+	private void tellJoke(final Context context) {
 
 		final MainActivity activity = (MainActivity) getActivity();
 
