@@ -11,7 +11,6 @@ import inc.ahmedmourad.joker.Joker;
 		ownerName = "backend.builditbigger.gradle.udacity.com"
 ))
 public class Endpoint {
-
 	@ApiMethod(name = "getJokeBean")
 	public Bean getJokeBean() {
 		return new Bean(Joker.getJoke());

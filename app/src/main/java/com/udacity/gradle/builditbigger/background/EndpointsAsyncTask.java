@@ -23,8 +23,8 @@ public class EndpointsAsyncTask extends AsyncTask<MainFragment.AsyncTaskCallback
 
 		if (apiService == null)
 			apiService = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
-					.setRootUrl("http://156.216.200.231:8080/_ah/api/")
-//					.setGoogleClientRequestInitializer(request -> request.setDisableGZipContent(true))
+					.setRootUrl("http://192.168.1.5:8080/_ah/api/")
+					.setGoogleClientRequestInitializer(request -> request.setDisableGZipContent(true))
 					.build();
 
 		try {
@@ -37,8 +37,8 @@ public class EndpointsAsyncTask extends AsyncTask<MainFragment.AsyncTaskCallback
 	@Override
 	protected void onPostExecute(String result) {
 
-//		if (result.toLowerCase().contains("failed to connect"))
-//			result = "Something went wrong!\nplease try again later!";
+		if (result.toLowerCase().contains("failed to connect"))
+			result = "Something went wrong!\nPlease try again later!";
 
 		callback.displayJoke(result);
 	}
