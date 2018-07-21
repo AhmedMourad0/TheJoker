@@ -1,3 +1,21 @@
+# The Joker
+
+## Project Overview
+This's a project for the Android Developer Nanodegree Program.
+
+## Screenshots
+
+![Screenshot 0](https://github.com/AhmedMouradDev/Android-Developer-Nanodegree_Project-5/blob/master/screenshots/1.jpg?raw=true)
+
+![Screenshot 1](https://github.com/AhmedMouradDev/Android-Developer-Nanodegree_Project-5/blob/master/screenshots/2.jpg?raw=true)
+
+![Screenshot 2](https://github.com/AhmedMouradDev/Android-Developer-Nanodegree_Project-5/blob/master/screenshots/3.jpg?raw=true)
+
+![Screenshot 3](https://github.com/AhmedMouradDev/Android-Developer-Nanodegree_Project-5/blob/master/screenshots/4.jpg?raw=true)
+
+![Screenshot 4](https://github.com/AhmedMouradDev/Android-Developer-Nanodegree_Project-5/blob/master/screenshots/5.jpg?raw=true)
+
+
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
